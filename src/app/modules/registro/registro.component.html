@@ -1,0 +1,109 @@
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top p-2" data-aos="fade-down">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/logo_natural_life.png" height="70px" />
+            </a>
+
+            <button aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarMenu" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse p-2" id="navbarMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item me-5">
+                        <a class="nav-link" href="#home">INICIO</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link" href="#nosotros">NOSOTROS</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link" href="#filosofia">FILOSOFÍA</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link" href="#producto">PRODUCTOS</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link" href="#contacto">CONTACTO</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link" routerLink="login" target="_self">LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section hero-img" style="background-image: url(./assets/img/hero_home.jpg)">
+        <div class="container mt-5">
+            <div class="degraded"></div>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+                    <a routerLink="../login" target="_self">
+                        <span>
+                            <h2 class="inactive underlineHover">Iniciar Sesión</h2>
+                        </span>
+                    </a>
+                    <a routerLink="../registro" target="_self">
+                        <span>
+                            <h2 class="active">Registrarse</h2>
+                        </span>
+                    </a>
+
+                    <!-- Login Form -->
+                    <form class="px-5 py-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre" id="nombre" />
+                            <i class="bx bxs-user login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Apellido paterno" id="apePaterno" />
+                            <i class="bx bxs-user login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Apellido materno" id="apeMaterno" />
+                            <i class="bx bxs-user login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Teléfono" id="telefono" />
+                            <i class="bx bxs-phone login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Dirección" id="direccion" />
+                            <i class="bx bxs-contact login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Correo" id="correo" />
+                            <i class="bx bxs-envelope login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Contraseña" id="contrasena" />
+                            <i class="bx bxs-key login"></i>
+                        </div>
+                        <input type="submit" class="fadeIn fourth" value="Registrarse" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container"></div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>Natural Life</strong>. Todos los derechos
+                reservados
+            </div>
+            <div class="text-center mt-2">
+                <a href="#"><i class="bx bxl-facebook mx-2 redes-sociales"></i></a>
+                <a href="#"><i class="bx bxl-instagram-alt mx-2 redes-sociales"></i></a>
+                <a href="#"><i class="bx bx-envelope mx-2 redes-sociales"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
