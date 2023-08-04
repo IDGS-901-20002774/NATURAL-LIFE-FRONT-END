@@ -19,6 +19,11 @@ import { ProductoComponent } from './modules/producto/producto.component';
 import { CatalogoComponent } from './modules/catalogo/catalogo.component';
 import { RegistroComponent } from './modules/registro/registro.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +45,10 @@ import { RegistroComponent } from './modules/registro/registro.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

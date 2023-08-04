@@ -49,15 +49,25 @@
           </a>
 
           <!-- Login Form -->
-          <form class="px-5 py-4">
+          <form (ngSubmit)="onSumit()" [formGroup]="loginForm" >
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Correo" id="correo" />
+              <input type="email" class="form-control"  formControlName="correo" placeholder="Correo" id="correo" />
               <i class="bx bxs-envelope login"></i>
             </div>
+            <div 
+            *ngIf="loginForm.get('correo')?.touched && loginForm.get('correo')?.errors?.['required']" 
+            class="alert alert-danger">
+            Este campo es requerido
+          </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Contraseña" id="contrasena" />
+              <input type="password" class="form-control" formControlName="contrasenia" placeholder="Contraseña" id="contrasena" />
               <i class="bx bxs-key login"></i>
             </div>
+            <div 
+            *ngIf="loginForm.get('contrasenia')?.touched && loginForm.get('contrasenia')?.errors?.['required']" 
+            class="alert alert-danger">
+            Este campo es requerido
+          </div>
             <input type="submit" class="fadeIn fourth" value="Iniciar sesión" />
           </form>
         </div>
