@@ -5,12 +5,14 @@ import { MenuComponent } from './modules/menu/menu.component';
 import { PanelAdmComponent } from './modules/panel-adm/panel-adm.component';
 import { CatalogoComponent } from './modules/catalogo/catalogo.component';
 import { RegistroComponent } from './modules/registro/registro.component';
+import { EmpleadoComponent } from './modules/empleado/empleado.component';
 
 const routes: Routes = [
   {path: '', component: MenuComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'catalogo-productos', component: CatalogoComponent},
+  {path: 'empleados', component: EmpleadoComponent},
   {path: 'panel', component: PanelAdmComponent},
 ];
 
