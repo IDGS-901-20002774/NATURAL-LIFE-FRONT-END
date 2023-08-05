@@ -70,11 +70,11 @@
             </div>
             <div class="modal-body" style="background: #FFFFFF;">
                 <div class="card-body border-dark">
-                    <form action="">
+                    <form  [formGroup]="empleadoForm" >
                         <div class="form row">
                         <div class="col-md-12">
                             <div class="input-group">
-                                <input id="txtIdentificadorLibro" type="text" class="form-control" hidden=""/>
+                                <input id="txtid_empleado" type="text"  class="form-control" hidden=""/>
                             </div>
                         </div>
                         <div class="col-md-12 mb-1">
@@ -83,31 +83,51 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Nombre:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="nombre" class="form-control"/>
+                            </div>
+                            <div *ngIf="empleadoForm.get('nombre')?.touched && empleadoForm.get('nombre')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Apellido paterno:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="apellidoP" class="form-control"/>
+                            </div>
+                            <div *ngIf="empleadoForm.get('apellidoP')?.touched && empleadoForm.get('apellidoP')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Apellido materno:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="apellidoM" class="form-control"/>
+                            </div>
+                            <div *ngIf="empleadoForm.get('apellidoM')?.touched && empleadoForm.get('aplellidoM')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Teléfono:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="telefono" class="form-control"/>
+                            </div>
+                            <div *ngIf="empleadoForm.get('telefono')?.touched && empleadoForm.get('telefono')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Dirección:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="direccion" class="form-control"/>
+                            </div>
+                            <div *ngIf="empleadoForm.get('direccion')?.touched && empleadoForm.get('direccion')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
                             </div>
                         </div>
                         <div class="col-md-12 mt-3 mb-1">
@@ -116,14 +136,25 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Nombre de usuario:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="correo" class="form-control"/>
+                            </div>
+                            
+                            <div *ngIf="empleadoForm.get('correo')?.touched && empleadoForm.get('correo')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>Contraseña:</div>
-                                <input id="" type="text" class="form-control"/>
+                                <input id="" type="text" formControlName="contrasenia" class="form-control"/>
                             </div>
+                            
+                            <div *ngIf="empleadoForm.get('contrasenia')?.touched && empleadoForm.get('contrasenia')?.errors?.['required']"
+                                    class="alert alert-danger">
+                                    Este campo es requerido
+                            </div>
+
                         </div>
                         <div class="pt-4 pb-2 text-center">
                             <input type="submit" class="btn btn-success" value="Registrar">

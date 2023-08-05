@@ -21,6 +21,9 @@ import { InsertarComponent } from './modules/elaboracion/insertar/insertar.compo
 import { EliminarComponent } from './modules/elaboracion/eliminar/eliminar.component';
 import { ModificarComponent } from './modules/elaboracion/modificar/modificar.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { ModificarComponent } from './modules/elaboracion/modificar/modificar.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
