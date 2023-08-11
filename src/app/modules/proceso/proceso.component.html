@@ -1,0 +1,255 @@
+<app-panel-adm></app-panel-adm>
+<div style="margin-left: 80px;">
+    <section class="mb-3">
+        <div class="container-fluid">
+            <h2 class="text-center mt-2 mb-5">Procesos</h2>
+            <div class="row">
+                <div class="col-12 col-lg-3" style="padding-left: 28px; padding-right: 28px;">
+                    <button class="btn btn-primary form-control" data-bs-toggle="modal"
+                        data-bs-target="#divRegistrarProceso">
+                        <i class="bx bx-add me-2"></i>Registrar proceso
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pe-3 ps-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <div class="card border-dark">
+                        <div class="card-header text-center" style="background: #F6B1A4">
+    
+                            <span class="text-white text-table pt-2"><b>LISTA DE PROCESOS</b></span>
+                        </div>
+                        <div class="card-body border-dark">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead style="background: #002454; color: #FFFFFF">
+                                        <tr class="text-center">
+                                            <th>Nombre del proceso</th>
+                                            <th>Ingredientes</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let proceso of listaProcesos" class="text-center">
+                                            <td>{{proceso.nombreProceso}}</td>
+                                            <td>{{proceso.ingredientes}}</td>
+                                            <td class="text-center">
+                                                <a href="#" class="btn btn-success" data-bs-toggle="modal"
+                                                    data-bs-target="#divDetalleProceso">
+                                                    <i class="bx bxs-edit-alt" style="color: #FFFFFF"></i>
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <button type="button" (click)="eliminarProceso(proceso.id)" class="btn btn-danger">
+                                                    <i class="bx bxs-trash" style="color: #FFFFFF"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="modal fade" id="divRegistrarProceso" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="border-radius: 10px;">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #F6B1A4">
+                    <img class="float-start" src="./assets/img/logo_natural_life.png" alt=""
+                        style="width: 45px; margin-right: 10px;">
+                    <span class="text-dark text-table pt-2" id="centrar-elemento"><b>REGISTRAR PROCESO</b></span>
+                    <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="background: #FFFFFF;">
+                    <div class="card-body border-dark">
+                        <form [formGroup]="procesoForm" (ngSubmit)="registrarProceso()">
+                            <div class="form row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input id="id" type="text" class="form-control" hidden />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                            <i class="bx bxs-cog icono me-2"></i>Nombre del proceso:
+                                        </div>
+                                        <input id="nombreProceso" type="text" class="form-control"
+                                            formControlName="nombreProceso" />
+                                    </div>
+                                    <div *ngIf="procesoForm.get('nombreProceso')?.touched && procesoForm.get('nombreProceso')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        ¡Este campo es requerido!
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-12 col-lg-12 mb-5 text-center">
+                                    <button type="button" (click)="addItem()" class="btn btn-success">
+                                        <i class='bx bx-plus'></i>Agregar Ingrediente
+                                    </button>
+                                </div>
+    
+                                <div class="col-md-12 col-lg-12">
+                                    <div formArrayName="items">
+                                        <div *ngFor="let item of items.controls; let i = index">
+                                            <div [formGroupName]="i">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-text texto-input"><i
+                                                                    class="bx bxs-book-alt icono me-2"></i>Ingrediente:
+                                                            </div>
+                                                            <select class="form-select" id="nombreIngrediente"
+                                                                formControlName="nombreIngrediente">
+                                                                <option value="Ingrediente 1">Ingrediente 1</option>
+                                                                <option value="Ingrediente 2">Ingrediente 2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="col-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-text texto-input">
+                                                                <i class="bx bxs-book-alt icono me-2"></i>Cantidad:
+                                                            </div>
+                                                            <input id="cantidad" type="number" class="form-control"
+                                                                formControlName="cantidad" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-text texto-input"><i
+                                                                    class="bx bxs-book-alt icono me-2"></i>Unidad de medida:
+                                                            </div>
+                                                            <select class="form-select" id="unidadMedida"
+                                                                formControlName="unidadMedida">
+                                                                <option value="ml">ml</option>
+                                                                <option value="gr">gr</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center mb-5">
+                                                    <button type="button" (click)="quitarIngrediente(i)"
+                                                        class="btn btn-danger">
+                                                        <i class="bx bxs-trash" style="color: #FFFFFF"></i>Quitar
+                                                        ingrediente
+                                                    </button>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="pt-4 pb-2 text-center">
+                                    <input type="submit" class="btn btn-success" value="Registrar" data-bs-dismiss="modal"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="divDetalleProceso" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="border-radius: 10px;">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #F6B1A4">
+                    <img class="float-start" src="./assets/img/logo_natural_life.png" alt=""
+                        style="width: 45px; margin-right: 10px;">
+                    <span class="text-white text-table pt-2" id="centrar-elemento"><b>MODIFICAR REGISTRO DE
+                            EMPLEADO</b></span>
+                    <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="background: #FFFFFF;">
+                    <div class="card-body border-dark">
+                        <form action="">
+                            <div class="form row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input id="txtIdentificadorLibro" type="text" class="form-control" hidden="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <h5 class="text-center"><i class="fa fa-book icono-2 me-2"></i>Información del empleado
+                                    </h5>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Nombre:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Apellido paterno:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Apellido materno:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Teléfono:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Dirección:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-3 mb-1">
+                                    <h5 class="text-center"><i class="fa fa-book icono-2 me-2"></i>Información de usuario
+                                    </h5>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Nombre de usuario:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Contraseña:</div>
+                                        <input id="" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="pt-4 pb-2 text-center">
+                                    <input type="submit" class="btn btn-success" value="Registrar">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

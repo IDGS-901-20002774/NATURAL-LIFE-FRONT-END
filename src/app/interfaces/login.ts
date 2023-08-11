@@ -1,2 +1,4 @@
-export interface Login {
+export interface LoginI {
+    correo:string;
+    contasenia:string;
 }

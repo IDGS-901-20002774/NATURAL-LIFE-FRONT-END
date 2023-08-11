@@ -1,1 +1,99 @@
-<p>usuario works!</p>
+<app-panel-adm></app-panel-adm>
+<div style="margin-left: 80px;">
+    <section id="usuarios" class="mb-3">
+        <div class="container-fluid">
+            <h2 class="text-center mt-2 mb-5">Usuarios</h2>
+            <div class="row">
+                <div class="col-12 col-lg-3" style="padding-left: 28px; padding-right: 28px;">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pe-3 ps-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="divListaUsuariosEmpleados" class="col-12 mb-5">
+                    <div class="card border-dark">
+                        <div class="card-header text-center" style="background: #F6B1A4">
+                            <img class="float-start" src="./assets/img/logo_natural_life.png" alt="" style="width: 35px; margin-right: 10px;">
+                            <span class="text-white text-table pt-2"><b>LISTA DE USUARIOS EMPLEADOS</b></span>
+                        </div>
+                        <div class="card-body border-dark">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead style="background: #002454; color: #FFFFFF">                        
+                                        <tr class="text-center">
+                                            <th>Nombre del empleado</th>
+                                            <th>Direcci&oacute;n</th>
+                                            <th>Tel&eacute;fono</th>
+                                            <th>Correo</th>
+                                            <th>Fecha de registro</th>
+                                            <th>Estatus</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let empleado of listaEmpleados" >
+                                          <td>{{empleado.nombre}} {{empleado.apellido_p}} {{empleado.apellido_m}}</td>
+                                          <td>{{empleado.direccion}}</td>
+                                          <td>{{empleado.telefono}}</td>
+                                          <td>{{empleado.usuario.correo}}</td>
+                                          <th>{{empleado.usuario.fecha}}</th>
+                                          <th>{{ empleado.estatus === 1 ? 'Activo' : 'Inactivo' }}</th>
+    
+                                        </tr>
+                                      </tbody>
+                                </table>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section class="pe-3 ps-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="divListaUsuariosClientes"   class="col-12 mb-5">
+                    <div class="card border-dark">
+                        <div class="card-header text-center" style="background: #F6B1A4">
+                            <img class="float-start" src="./assets/img/logo_natural_life.png" alt="" style="width: 35px; margin-right: 10px;">
+                            <span class="text-white text-table pt-2"><b>LISTA DE USUARIOS CLIENTES</b></span>
+                        </div>
+                        <div class="card-body border-dark">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead style="background: #002454; color: #FFFFFF">                        
+                                        <tr class="text-center">
+                                            <th>Nombre del Cliente</th>
+                                            <th>Direcci&oacute;n</th>
+                                            <th>Tel&eacute;fono</th>
+                                            <th>Correo</th>
+                                            <th>Fecha de registro</th>
+                                            <th>Estatus</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let cliente of listaClientes" >
+                                          <td>{{cliente.nombre}} {{cliente.apellido_p}} {{cliente.apellido_m}}</td>
+                                          <td>{{cliente.direccion}}</td>
+                                          <td>{{cliente.telefono}}</td>
+                                          <td>{{cliente.usuario.correo}}</td>
+                                          <td>{{cliente.usuario.fecha}}</td>
+                                          <th>{{ cliente.estatus === 1 ? 'Activo' : 'Inactivo' }}</th>
+    
+                                        </tr>
+                                      </tbody>
+                                </table>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+</div>

@@ -9,6 +9,7 @@ export class PanelAdmComponent {
   sidebar: HTMLElement | null;
   closeBtn: HTMLElement | null;
   searchBtn: HTMLElement | null;
+  linkSeleccionado = "";
 
   constructor() {
     this.sidebar = null;

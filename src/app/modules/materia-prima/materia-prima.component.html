@@ -1,1 +1,255 @@
-<p>materia-prima works!</p>
+<app-panel-adm></app-panel-adm>
+<div style="margin-left: 80px;">
+    <section id="materiaPrima" class="mb-3">
+        <div class="container-fluid">
+            <h2 class="text-center mt-2 mb-5">Materia Prima</h2>
+            <div class="row">
+                <div class="col-12 col-lg-3" style="padding-left: 28px; padding-right: 28px">
+                    <button class="btn btn-primary form-control" data-bs-toggle="modal"
+                        data-bs-target="#divRegistrarMateria">
+                        <i class="bx bx-add me-2"></i>Registrar Materia Prima
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pe-3 ps-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="divListaMateriaPrima" class="col-12 mb-5">
+                    <div class="card border-dark">
+                        <div class="card-header text-center" style="background: #f6b1a4">
+                            <img class="float-start" src="./assets/img/logo_natural_life.png" alt=""
+                                style="width: 35px; margin-right: 10px" />
+                            <span class="text-white text-table pt-2"><b>LISTA DE MATERIAS PRIMAS</b></span>
+                        </div>
+                        <div class="card-body border-dark">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead style="background: #002454; color: #ffffff">
+                                        <tr class="text-center">
+                                            <th>Nombre de materia prima</th>
+                                            <th>descripcion</th>
+                                            <th>unidad de medida</th>
+                                            <th>Existencia</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let materia of listaMaterias">
+                                            <td>{{ materia.nombre }}</td>
+                                            <td>{{ materia.descripcion }}</td>
+                                            <td>{{ materia.unidad_medida }}</td>
+                                            <td>{{ materia.cantidad }}</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-success"  (click)="mostrarDetalleMateria(materia)"  data-bs-toggle="modal" data-bs-target="#divDetalleMateria">
+                                                    <i class="bx bxs-edit-alt" style="color: #FFFFFF"></i>
+                                                  </button>
+                                            </td>
+                                            <td class="text-center">
+                                                <button class="btn btn-danger" (click)="eliminarMateria(materia.id_materia_prima)">
+                                                    <i class="bx bxs-trash" style="color: #ffffff"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="modal fade" id="divRegistrarMateria" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="border-radius: 10px">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #f6b1a4">
+                    <img class="float-start" src="./assets/img/logo_natural_life.png" alt=""
+                        style="width: 45px; margin-right: 10px" />
+                    <span class="text-white text-table pt-2" id="centrar-elemento"><b>REGISTRAR MATERIA</b></span>
+                    <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="background: #ffffff">
+                    <div class="card-body border-dark">
+                        <form  (ngSubmit)="registroMateria()"  [formGroup]="materiaForm">
+                            <div class="form row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input id="txtid_materia" type="text" class="form-control" hidden="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <h5 class="text-center">
+                                        <i class="fa fa-book icono-2 me-2"></i>Información de la materia prima
+                                    </h5>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                            <i class="fa fa-user icono me-2"></i>Nombre:
+                                        </div>
+                                        <input id="" type="text" formControlName="nombre" class="form-control" />
+                                    </div>
+                                    <div *ngIf="materiaForm.get('nombre')?.touched && materiaForm.get('nombre')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                            <i class="fa fa-user icono me-2"></i>Descripción:
+                                        </div>
+                                        <input id="" type="text" formControlName="descripcion" class="form-control" />
+                                    </div>
+                                    <div *ngIf="materiaForm.get('descripcion')?.touched && materiaForm.get('descripcion')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                            <i class="fa fa-user icono me-2"></i> Unidad de medida:
+                                        </div>
+                                        <select class="form-select" formControlName="unidad_medida"
+                                            aria-label="Default select example">
+                                            <option value="gr">gramos</option>
+                                            <option value="ml">Mililitros</option>
+                                            <option value="mgr">Miligramos</option>
+                                            <option value="ltr">Litros</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="materiaForm.get('unidad_medida')?.touched && materiaForm.get('unidad_medida')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                            <i class="fa fa-user icono me-2"></i>Cantidad
+                                        </div>
+                                        <input id="" type="text" formControlName="cantidad" class="form-control" />
+                                    </div>
+                                    <div *ngIf="materiaForm.get('cantidad')?.touched && materiaForm.get('cantidad')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+    
+                                <div class="pt-4 pb-2 text-center">
+                                    <input type="submit" class="fadeIn fourth" value="Registrar" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="divDetalleMateria" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="border-radius: 10px">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #f6b1a4">
+                    <img class="float-start" src="./assets/img/logo_natural_life.png" alt=""
+                        style="width: 45px; margin-right: 10px" />
+                    <span class="text-white text-table pt-2" id="centrar-elemento"><b>MODIFICAR REGISTRO DE
+                            MATERIA PRIMA</b></span>
+                    <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="background: #ffffff">
+                    <div class="card-body border-dark">
+                        <form  (ngSubmit)="modificarMateria()" [formGroup]="editarMateriaForm">
+                            <div class="form row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input id="txtid_materia" type="text" formControlName="id_materia_prima"
+                                            class="form-control" hidden="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input id="txtid_materia" type="text" class="form-control" hidden="" />
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <h5 class="text-center"><i class="fa fa-book icono-2 me-2"></i>Información del materia prima
+                                    </h5>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Nombre:</div>
+                                        <input id="" type="text" formControlName="nombre" class="form-control" />
+                                    </div>
+                                    <div *ngIf="materiaForm.get('nombre')?.touched && materiaForm.get('nombre')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Descripción:</div>
+                                        <input id="" type="text" formControlName="descripcion" class="form-control" />
+                                    </div>
+                                    <div *ngIf="materiaForm.get('descripcion')?.touched && materiaForm.get('descripcion')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i class="fa fa-user icono me-2"></i>
+                                            Unidad de medida:</div>
+                                        <select class="form-select" formControlName="unidad_medida"
+                                            aria-label="Default select example">
+                                            <option value="gr">gramos</option>
+                                            <option value="ml">Mililitros</option>
+                                            <option value="mgr">Miligramos</option>
+                                            <option value="ltr">Litros</option>
+    
+                                        </select>
+                                    </div>
+                                    <div *ngIf="materiaForm.get('unidad_medida')?.touched && materiaForm.get('unidad_medida')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input"><i
+                                                class="fa fa-user icono me-2"></i>Cantidad</div>
+                                        <input id="" type="text" formControlName="cantidad" class="form-control" />
+                                    </div>
+                                    <div *ngIf="materiaForm.get('cantidad')?.touched && materiaForm.get('cantidad')?.errors?.['required']"
+                                        class="alert alert-danger">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+    
+                                <div class="pt-4 pb-2 text-center">
+                                    <input type="submit" class="fadeIn fourth" value="Registrar" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

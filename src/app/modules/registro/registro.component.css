@@ -199,11 +199,9 @@ i.login {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
-    padding: 30px;
     width: 90%;
     max-width: 450px;
     position: relative;
-    padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
@@ -299,6 +297,14 @@ i.login {
     -o-transform: scale(0.95);
     -ms-transform: scale(0.95);
     transform: scale(0.95);
+  }
+
+  @media (max-width: 765px) {
+    input[type=button], input[type=submit], input[type=reset] {
+        padding: 10px 20px; /* Ajusta el padding para pantallas pequeñas */
+        font-size: 12px;    /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        /* Otros ajustes de estilo que desees */
+    }
   }
     
   /* ANIMATIONS */

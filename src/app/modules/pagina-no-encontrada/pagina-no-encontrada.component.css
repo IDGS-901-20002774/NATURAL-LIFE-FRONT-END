@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Questrial&display=swap');
+
+.card-body h4 {
+    font-family: 'Oleo Script', cursive;
+    font-size: 24px;
+}
+
+.card-color {
+    background: #01579B;
+}
+
+.card-heigth {
+    height: 180px;
+}
+
+i {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.degraded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(185, 185, 185, 0.7));
+    z-index: -1;
+}
+
+.degraded-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(237, 187, 187, 0.7), rgba(152, 109, 109, 0.7));
+    z-index: -1;
+}
+
+.degraded-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(45, 45, 45, 0.7), rgba(0, 0, 0, 0.7));
+    z-index: -1;
+}
+
+.hero-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    z-index: 2;
+    position: relative;
+}
+
+.hero-text-h1 {
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.hero-text-p {
+    font-family: 'Questrial', sans-serif;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.logo-text {
+    font-family: 'Oleo Script', cursive;
+    font-size: 25px;
+}
+
+.navbar {
+    background: #FFF;
+}
+
+.navbar-nav a {
+    font-family: 'Oleo Script', cursive;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.1s ease;
+}
+
+.navbar-light .navbar-brand {
+    color: #000000;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover {
+    color: #000000;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000000;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #000000;
+}
+
+.w-100 {
+    height: 100vh;
+}
+
+.navbar-toggler {
+    padding: 1px 5px;
+    font-size: 18px;
+    line-height: 0.3;
+    background: #F6F6F6;
+}
+
+.text {
+    font-family: 'Questrial', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+.text-nosotros {
+    font-family: 'Questrial', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.text-about {
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+    text-align: center;
+}
+
+.text-about-p {
+    font-family: 'Questrial', sans-serif;
+    font-style: italic;
+    font-size: 25px;
+    text-align: justify;
+}
+
+.section-header h2 {
+    font-family: 'Oleo Script', cursive;
+    font-size: 35px;
+}
+
+.section-header p {
+    font-family: 'Questrial', sans-serif;
+    font-size: 20px;
+}
+
+#footer {
+    background: #343b40;
+    padding: 30px 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+#footer .copyright {
+    text-align: center;
+}
+
+#footer .credits {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #ccc;
+}
+
+
+/*--------------------------------------------------------------
+# product
+--------------------------------------------------------------*/
+.producto .producto-item {
+    margin-bottom: 30px;
+}
+
+.producto #producto-flters {
+    padding: 0;
+    margin: 0 auto 25px auto;
+    list-style: none;
+    text-align: center;
+}
+
+.producto #producto-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #444444;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    font-family: "Poppins", sans-serif;
+}
+
+.producto #producto-flters li:hover,
+.producto #producto-flters li.filter-active {
+    color: #009cea;
+}
+
+.producto #producto-flters li:last-child {
+    margin-right: 0;
+}
+
+.producto .producto-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.producto .producto-wrap::before {
+    content: "";
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    bottom: 30px;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+}
+
+.producto .producto-wrap .producto-info {
+    opacity: 0;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+}
+
+.producto .producto-wrap .producto-info h4 {
+    font-size: 15px;
+    color: #364146;
+    font-weight: 600;
+}
+
+.producto .producto-wrap .producto-info p {
+    color: #364146;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.producto .producto-wrap .producto-links {
+    opacity: 0;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    text-align: center;
+    z-index: 3;
+    position: absolute;
+    transition: all ease-in-out 0.3s;
+}
+
+.producto .producto-wrap .producto-links a {
+    color: #F6B1A4;
+    margin: 0 2px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transition: 0.3s;
+    background: #FFEBEA;
+    border-radius: 50%;
+    line-height: 0;
+}
+
+.producto .producto-wrap .producto-links a:hover {
+    color: #FFFFFF;
+    background: #F6B1A4;
+}
+
+.producto .producto-wrap:hover::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+}
+
+.producto .producto-wrap:hover .producto-info {
+    opacity: 1;
+    top: calc(50% - 48px);
+}
+
+.producto .producto-wrap:hover .producto-links {
+    opacity: 1;
+    bottom: calc(50% - 50px);
+}
+
+/*--------------------------------------------------------------
+  # product Details
+  --------------------------------------------------------------*/
+.producto-details {
+    padding-top: 40px;
+}
+
+.producto-details .producto-details-slider img {
+    width: 100%;
+}
+
+.producto-details .producto-details-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+}
+
+.producto-details .producto-details-slider .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #009cea;
+}
+
+.producto-details .producto-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #009cea;
+}
+
+.producto-details .producto-info {
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(54, 65, 70, 0.08);
+}
+
+.producto-details .producto-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.producto-details .producto-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+}
+
+.producto-details .producto-info ul li+li {
+    margin-top: 10px;
+}
+
+.producto-details .producto-description {
+    padding-top: 30px;
+}
+
+.producto-details .producto-description h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.producto-details .producto-description p {
+    padding: 0;
+}
+
+/* filosofia Section
+--------------------------------*/
+.box:hover {
+    top: -10px;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #F6B1A4;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.box:hover::after {
+    opacity: 1;
+}
+
+#filosofia {
+    background: #fff;
+    background-size: cover;
+    padding: 80px 0 60px 0;
+}
+
+#filosofia .box {
+    padding: 50px 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    height: 250px;
+    position: relative;
+    background: #FFFFFF;
+}
+
+#filosofia .icon {
+    position: absolute;
+    top: -36px;
+    left: calc(50% - 36px);
+    transition: 0.2s;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 72px;
+    height: 72px;
+    background: #F6B1A4;
+}
+
+#filosofia .icon a {
+    display: inline-block;
+}
+
+#filosofia .icon i {
+    color: #fff;
+    font-size: 24px;
+    line-height: 0;
+}
+
+#filosofia .box:hover .icon {
+    background: #fff;
+    border: 2px solid #F6B1A4;
+}
+
+#filosofia .box:hover .icon i {
+    color: #F6B1A4;
+}
+
+#filosofia .box:hover .icon a {
+    color: #F6B1A4;
+}
+
+#filosofia .title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+#filosofia .title a {
+    color: #111;
+}
+
+#filosofia .description {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.btn-enviar {
+    color: #F6B1A4;
+    font-weight: bold;
+    margin: 0 2px;
+    width: 100px;
+    height: 50px;
+    transition: 0.3s;
+    background: #FFEBEA;
+    border: none;
+    border-radius: 15px;
+    line-height: 0;
+}
+
+.btn-enviar:hover {
+    color: #FFFFFF;
+    background: #F6B1A4;
+}
+
+.redes-sociales {
+    color: #F6B1A4;
+}

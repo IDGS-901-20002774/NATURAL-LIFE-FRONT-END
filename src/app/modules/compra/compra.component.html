@@ -1,1 +1,114 @@
-<p>compra works!</p>
+<app-panel-adm></app-panel-adm>
+<div style="margin-left: 80px;">
+    <section id="materiaPrima" class="mb-3">
+        <div class="container-fluid">
+            <h2 class="text-center mt-2 mb-5">Compras de Materia Prima</h2>
+            <div class="row">
+                <div class="col-12 col-lg-3" style="padding-left: 28px; padding-right: 28px">
+                    <button class="btn btn-primary form-control" data-bs-toggle="modal"
+                        data-bs-target="#divRegistrarCompraMateria">
+                        <i class="bx bx-add me-2"></i>Registrar Materia Prima
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>   
+    
+    <div class="modal fade" id="divRegistrarCompraMateria" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="border-radius: 10px">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #f6b1a4">
+                    <img class="float-start" src="./assets/img/logo_natural_life.png" alt=""
+                        style="width: 45px; margin-right: 10px" />
+                    <span class="text-white text-table pt-2" id="centrar-elemento"><b>COMPRA DE MATERIA PRIMA</b></span>
+                    <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="background: #ffffff">
+                    <div class="card-body border-dark">
+                        <div class="pt-4 pb-2 text-center">
+                            <button class="btn btn-primary form-control" (click)="agregarCampos()">
+                              <i class="bx bx-add me-2"></i> Agregar materia prima
+                            </button>
+                          </div><!-- (ngSubmit)=""  -->
+                        <form  (ngSubmit)="registrarCompra()"  [formGroup]="compraForm" >
+                            <div class="form row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input id="txtid_materia" type="text" class="form-control" hidden="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <h5 class="text-center">
+                                        <i class="fa fa-book icono-2 me-2"></i>Información compra de la materia prima
+                                    </h5>
+                                </div>
+                                
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                            <i class="fa fa-user icono me-2"></i>Proveedor:
+                                        </div>
+                                        <select class="form-select"   formControlName="id_proveedor" aria-label="Default select example">
+                                            <option *ngFor="let proveedor of listaProveedores"
+                                            value="{{proveedor.id_proveedor}}">{{proveedor.nombre}}</option>
+                                        </select>
+    
+                                    </div>
+                                    
+                                </div>
+                                <div class="row" *ngFor="let campo of listaCampos; let i = index">
+                                    <div class="col-md-12 col-lg-6">
+                                        
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-text texto-input">
+                                                <i class="fa fa-user icono me-2"></i>Materia Prima:
+                                            </div>
+                                            <select class="form-select"  formControlName="id_materia_prima" aria-label="Default select example">
+                                                <option *ngFor="let materia_prima of listaMateriaPrima"
+                                                value="{{materia_prima.id_materia_prima}}">{{materia_prima.nombre}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-12 col-lg-6">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                          <i class="fa fa-user icono me-2"></i> Cantidad:
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="cantidad" />
+                                      </div>
+                                    </div>
+    
+                                    <div class="col-md-12 col-lg-6">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-text texto-input">
+                                          <i class="fa fa-user icono me-2"></i> Costo de compra:
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="costo_compra" />
+                                      </div>
+                                    </div>
+                                
+                                </div>
+                                  <p>{{total}}</p>
+                                  
+                                  <div class="pt-4 pb-2 text-center">
+                                    <button class="btn btn-primary form-control" >
+                                      <i class="bx bx-add me-2"></i> Calcular compra
+                                    </button>
+                                  </div>
+                                                     
+    
+                                <div class="pt-4 pb-2 text-center">
+                                    <input type="submit" class="fadeIn fourth" value="Registrar" />
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
