@@ -8,6 +8,7 @@ import { RegistroService } from 'src/app/services/registro.service';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
+
 export class RegistroComponent {
   clienteForm!: FormGroup;
   
